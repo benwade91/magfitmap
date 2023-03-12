@@ -10,9 +10,11 @@ function renderMarkers() {
     anchor: new google.maps.Point(17, 34),
     scaledSize: new google.maps.Size(50, 50)
   };
+  
   fetch("https://benwade.dev/magfitmap/data/gyms.json")
     .then((response) => response.json())
     .then((json) => {
+      console.log(json);
       console.log(json.body);
       // json.body.forEach(file => {
       //   const marker = new google.maps.Marker({
