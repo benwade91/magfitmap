@@ -10,7 +10,8 @@ function renderMarkers() {
     anchor: new google.maps.Point(17, 34),
     scaledSize: new google.maps.Size(50, 50)
   };
-  
+  const markers = [];
+
   fetch("https://benwade.dev/magfitmap/data/gyms.json")
     .then((response) => response.json())
     .then((json) => {
@@ -38,7 +39,9 @@ function renderMarkers() {
             map,
           });
         });
+        markers.push(marker);
       })
+      new MarkerClusterer({ markers, map });
     });
 }
 
