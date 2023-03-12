@@ -1,7 +1,12 @@
 let map;
-let data = fetch("./data/gyms.json")
+let data;
+
+fetch("./data/gyms.json")
   .then((response) => response.json())
-  .then((json) => console.log(json.body));
+  .then((json) => {
+    data = json.body;
+    window.initMap = initMap;
+  });
 
 function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
@@ -46,5 +51,3 @@ function initMap() {
   })
 
 }
-
-window.initMap = initMap;
