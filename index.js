@@ -1,7 +1,7 @@
 let map;
 let data = fetch("./data/gyms.json")
   .then((response) => response.json())
-  .then((json) => console.log(json));
+  .then((json) => console.log(json.body));
 
 function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
