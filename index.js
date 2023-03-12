@@ -13,28 +13,29 @@ function renderMarkers() {
   fetch("./data/gyms.json")
     .then((response) => response.json())
     .then((json) => {
-      json.body.forEach(file => {
-        const marker = new google.maps.Marker({
-          position: {
-            lat: file.Latitude,
-            lng: file.Longitude,
-          },
-          map,
-          title: file.Name,
-          icon: image,
-        });
+      console.log(json.body);
+      // json.body.forEach(file => {
+      //   const marker = new google.maps.Marker({
+      //     position: {
+      //       lat: file.Latitude,
+      //       lng: file.Longitude,
+      //     },
+      //     map,
+      //     title: file.Name,
+      //     icon: image,
+      //   });
 
-        const infowindow = new google.maps.InfoWindow({
-          content: file.Name,
-          ariaLabel: "Uluru",
-        });
-        marker.addListener("click", () => {
-          infowindow.open({
-            anchor: marker,
-            map,
-          });
-        });
-      })
+      //   const infowindow = new google.maps.InfoWindow({
+      //     content: file.Name,
+      //     ariaLabel: "Uluru",
+      //   });
+      //   marker.addListener("click", () => {
+      //     infowindow.open({
+      //       anchor: marker,
+      //       map,
+      //     });
+      //   });
+      // })
     });
 }
 
