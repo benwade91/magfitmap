@@ -1,7 +1,5 @@
 let map;
-const data = await fetch("https://benwade.dev/magfitmap/data/gyms.json")
-
-console.log(data);
+let data = fetch("./data/gyms.json").then((res)=> console.log(res))
 
 function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
