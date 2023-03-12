@@ -1,5 +1,5 @@
 let map;
-let data;
+window.initMap = initMap;
 
 const image = {
   url: "https://benwade.dev/magfitmap/markers/magfitIcon.png",
@@ -49,5 +49,3 @@ function initMap() {
   });
   renderMarkers();
 }
-
-window.initMap = initMap;
