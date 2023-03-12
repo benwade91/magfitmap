@@ -4,7 +4,7 @@ window.initMap = initMap;
 
 function renderMarkers() {
   const image = {
-    url: "https://benwade.dev/magfitmap/markers/magfitIcon.png",
+    url: "./markers/magfitIcon.png",
     size: new google.maps.Size(71, 71),
     origin: new google.maps.Point(0, 0),
     anchor: new google.maps.Point(17, 34),
@@ -12,7 +12,7 @@ function renderMarkers() {
   };
   const markers = [];
 
-  fetch("https://benwade.dev/magfitmap/data/gyms.json")
+  fetch("./data/gyms.json")
     .then((response) => response.json())
     .then((json) => {
       console.log(json.length);
@@ -43,7 +43,7 @@ function renderMarkers() {
       })
       const mcOptions = {
         styles: [{
-          url: "https://benwade.dev/magfitmap/markers/magfitIcon.png",
+          url: ".markers/magfitIcon.png",
           width: 60,
           height: 60,
           fontFamily: "comic sans ms",
