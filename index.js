@@ -1,6 +1,5 @@
 let map;
-const icon = new Image();
-icon.src = './markers/magfitIcon.png'
+const data = "https://benwade.dev/magfitmap/data/gyms.json"
 
 function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
