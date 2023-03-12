@@ -5,7 +5,7 @@ window.initMap = initMap;
 function renderMarkers() {
   const image = {
     url: "./markers/magfitIcon.png",
-    size: new google.maps.Size(71, 71),
+    size: new google.maps.Size(40, 40),
     origin: new google.maps.Point(0, 0),
     anchor: new google.maps.Point(17, 34),
     scaledSize: new google.maps.Size(40, 40)
@@ -43,7 +43,7 @@ function renderMarkers() {
       })
       const clusterImg = {
         url: "./markers/magfitIcon.png",
-        size: new google.maps.Size(71, 71),
+        size: new google.maps.Size(60, 60),
         origin: new google.maps.Point(0, 0),
         anchor: new google.maps.Point(17, 34),
         scaledSize: new google.maps.Size(60, 60)
@@ -59,7 +59,7 @@ function renderMarkers() {
             label: {
               text: String(count),
               color: "white",
-              fontSize: "10px"
+              fontSize: "20px"
             },
             position,
             icon: clusterImg,
