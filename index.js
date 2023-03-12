@@ -3,8 +3,8 @@ let map;
 function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
     center: { lat: 37.7749, lng: -122.4194 },
-    zoom: 8,
-    mapId: "88c0d23521010260",
+    zoom: 5,
+    mapId: "a4aeaf34cd1e581a",
     // styles: [
     //   { elementType: "geometry", stylers: [{ color: "#242f3e" }] },
     //   { elementType: "labels.text.stroke", stylers: [{ color: "#242f3e" }] },
