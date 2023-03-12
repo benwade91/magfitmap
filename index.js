@@ -41,22 +41,30 @@ function renderMarkers() {
         });
         markers.push(marker);
       })
-      const mcOptions = {
-        styles: [{
-          url: ".markers/magfitIcon.png",
-          width: 60,
-          height: 60,
-          fontFamily: "comic sans ms",
-          textSize: 15,
-          textColor: "white",
-          //color: #00FF00,
-        }]
+      const clusterImg = {
+        url: "./markers/magfitIcon.png",
+        size: new google.maps.Size(71, 71),
+        origin: new google.maps.Point(0, 0),
+        anchor: new google.maps.Point(17, 34),
+        scaledSize: new google.maps.Size(60, 60)
       };
       console.log(markers.length);
+
+      const renderer = {
+        render({ count, position }) {
+            return new google.maps.Marker({
+                label: { text: String(count), color: "white", fontSize: "10px" },
+                position,
+                icon: clusterImg,
+                // adjust zIndex to be above other markers
+                zIndex: Number(google.maps.Marker.MAX_ZINDEX) + count,
+            });
+        }
+    }
       new markerClusterer.MarkerClusterer({
         markers,
         map,
-        mcOptions
+        renderer
       });
     });
 }
