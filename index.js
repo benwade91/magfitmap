@@ -8,7 +8,7 @@ function renderMarkers() {
     size: new google.maps.Size(71, 71),
     origin: new google.maps.Point(0, 0),
     anchor: new google.maps.Point(17, 34),
-    scaledSize: new google.maps.Size(50, 50)
+    scaledSize: new google.maps.Size(40, 40)
   };
   const markers = [];
 
@@ -17,7 +17,7 @@ function renderMarkers() {
     .then((json) => {
       console.log(json);
       json.forEach(file => {
-        if(!file.Latitude || !file.Longitude) return;
+        if (!file.Latitude || !file.Longitude) return;
 
         const marker = new google.maps.Marker({
           position: {
@@ -41,7 +41,23 @@ function renderMarkers() {
         });
         markers.push(marker);
       })
-      new MarkerClusterer({ markers, map });
+      const mcOptions = {
+        styles: [{
+          url: "https://benwade.dev/magfitmap/markers/magfitIcon.png",
+          width: 60,
+          height: 60,
+          fontFamily: "comic sans ms",
+          textSize: 15,
+          textColor: "white",
+          //color: #00FF00,
+        }]
+
+      };
+      new MarkerClusterer({
+        markers,
+        map,
+        mcOptions
+      });
     });
 }
 
