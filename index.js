@@ -1,9 +1,14 @@
 let map;
-let data = fetch("./data/gyms.json").then((res)=> console.log(res))
+let data = fetch("./data/gyms.json")
+  .then((response) => response.json())
+  .then((json) => console.log(json));
 
 function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
-    center: { lat: 37.7749, lng: -122.4194 },
+    center: {
+      lat: 37.7749,
+      lng: -122.4194
+    },
     zoom: 7,
     mapId: "a4aeaf34cd1e581a",
   });
@@ -18,7 +23,10 @@ function initMap() {
   };
 
   const marker = new google.maps.Marker({
-    position: { lat: 37.7749, lng: -122.4194 },
+    position: {
+      lat: 37.7749,
+      lng: -122.4194
+    },
     map,
     title: "Hello World!",
     icon: image,
