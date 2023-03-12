@@ -13,7 +13,6 @@ function initMap() {
     mapId: "a4aeaf34cd1e581a",
   });
 
-
   const image = {
     url: "https://benwade.dev/magfitmap/markers/magfitIcon.png",
     size: new google.maps.Size(71, 71),
@@ -22,26 +21,30 @@ function initMap() {
     scaledSize: new google.maps.Size(50, 50)
   };
 
-  const marker = new google.maps.Marker({
-    position: {
-      lat: 37.7749,
-      lng: -122.4194
-    },
-    map,
-    title: "Hello World!",
-    icon: image,
-  });
+  data.map(file => {
 
-  const infowindow = new google.maps.InfoWindow({
-    content: "contentString",
-    ariaLabel: "Uluru",
-  });
-  marker.addListener("click", () => {
-    infowindow.open({
-      anchor: marker,
+    const marker = new google.maps.Marker({
+      position: {
+        lat: file.Latitude,
+        lng: file.Longitude,
+      },
       map,
+      title: file.Name,
+      icon: image,
     });
-  });
+
+    const infowindow = new google.maps.InfoWindow({
+      content: file.Name,
+      ariaLabel: "Uluru",
+    });
+    marker.addListener("click", () => {
+      infowindow.open({
+        anchor: marker,
+        map,
+      });
+    });
+  })
+
 }
 
 window.initMap = initMap;
