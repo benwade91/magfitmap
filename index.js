@@ -16,7 +16,7 @@ function renderMarkers() {
     .then((json) => {
       console.log(json);
       json.forEach(file => {
-        if(!file.Latitude || !file.Longitude) continue;
+        if(!file.Latitude || !file.Longitude) return;
 
         const marker = new google.maps.Marker({
           position: {
