@@ -1,4 +1,6 @@
 let map;
+const icon = new Image();
+icon.src = './markers/magfitIcon.png'
 
 function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
@@ -11,6 +13,7 @@ function initMap() {
     position: { lat: 37.7749, lng: -122.4194 },
     map,
     title: "Hello World!",
+    icon: icon,
   });
 }
 
