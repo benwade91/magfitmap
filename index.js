@@ -13,7 +13,7 @@ function initMap() {
     position: { lat: 37.7749, lng: -122.4194 },
     map,
     title: "Hello World!",
-    icon: icon,
+    icon: "https://benwade.dev/magfitmap/markers/magfitIcon.png",
   });
 
   const infowindow = new google.maps.InfoWindow({
