@@ -17,7 +17,7 @@ function renderMarkers() {
     .then((json) => {
       console.log(json.length);
       json.forEach(file => {
-        if (!file.Latitude || !file.Longitude) return;
+        if (file.Latitude == null || file.Longitude == null) return;
 
         const marker = new google.maps.Marker({
           position: {
@@ -51,16 +51,23 @@ function renderMarkers() {
       console.log(markers.length);
 
       const renderer = {
-        render({ count, position }) {
-            return new google.maps.Marker({
-                label: { text: String(count), color: "white", fontSize: "10px" },
-                position,
-                icon: clusterImg,
-                // adjust zIndex to be above other markers
-                zIndex: Number(google.maps.Marker.MAX_ZINDEX) + count,
-            });
+        render({
+          count,
+          position
+        }) {
+          return new google.maps.Marker({
+            label: {
+              text: String(count),
+              color: "white",
+              fontSize: "10px"
+            },
+            position,
+            icon: clusterImg,
+            // adjust zIndex to be above other markers
+            zIndex: Number(google.maps.Marker.MAX_ZINDEX) + count,
+          });
         }
-    }
+      }
       new markerClusterer.MarkerClusterer({
         markers,
         map,
