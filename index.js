@@ -5,7 +5,7 @@ fetch("./data/gyms.json")
   .then((response) => response.json())
   .then((json) => {
     data = json.body;
-    data.map(file => {
+    data.forEach(file => {
       const marker = new google.maps.Marker({
         position: {
           lat: file.Latitude,
