@@ -16,6 +16,8 @@ function renderMarkers() {
     .then((json) => {
       console.log(json);
       json.forEach(file => {
+        if(!file.Latitude || !file.Longitude)
+
         const marker = new google.maps.Marker({
           position: {
             lat: file.Latitude,
@@ -27,7 +29,7 @@ function renderMarkers() {
         });
 
         const infowindow = new google.maps.InfoWindow({
-          content: file.Name,
+          content: `<div><h6>${file.Name}</h6><p>${file.Address}</p></div>`,
           ariaLabel: "Uluru",
         });
         marker.addListener("click", () => {
@@ -46,7 +48,7 @@ function initMap() {
       lat: 37.7749,
       lng: -122.4194
     },
-    zoom: 7,
+    zoom: 8,
     mapId: "a4aeaf34cd1e581a",
   });
   renderMarkers();
