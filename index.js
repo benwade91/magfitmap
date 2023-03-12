@@ -9,32 +9,34 @@ const image = {
   scaledSize: new google.maps.Size(50, 50)
 };
 
-fetch("./data/gyms.json")
-  .then((response) => response.json())
-  .then((json) => {
-    json.body.forEach(file => {
-      const marker = new google.maps.Marker({
-        position: {
-          lat: file.Latitude,
-          lng: file.Longitude,
-        },
-        map,
-        title: file.Name,
-        icon: image,
-      });
-
-      const infowindow = new google.maps.InfoWindow({
-        content: file.Name,
-        ariaLabel: "Uluru",
-      });
-      marker.addListener("click", () => {
-        infowindow.open({
-          anchor: marker,
+function renderMarkers() {
+  fetch("./data/gyms.json")
+    .then((response) => response.json())
+    .then((json) => {
+      json.body.forEach(file => {
+        const marker = new google.maps.Marker({
+          position: {
+            lat: file.Latitude,
+            lng: file.Longitude,
+          },
           map,
+          title: file.Name,
+          icon: image,
         });
-      });
-    })
-  });
+
+        const infowindow = new google.maps.InfoWindow({
+          content: file.Name,
+          ariaLabel: "Uluru",
+        });
+        marker.addListener("click", () => {
+          infowindow.open({
+            anchor: marker,
+            map,
+          });
+        });
+      })
+    });
+}
 
 function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
@@ -45,6 +47,7 @@ function initMap() {
     zoom: 7,
     mapId: "a4aeaf34cd1e581a",
   });
-
+  renderMarkers();
 }
+
 window.initMap = initMap;
