@@ -1,6 +1,8 @@
 let map;
 const data = "https://benwade.dev/magfitmap/data/gyms.json"
 
+console.log(data.length);
+
 function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
     center: { lat: 37.7749, lng: -122.4194 },
