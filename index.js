@@ -15,6 +15,7 @@ function renderMarkers() {
   fetch("https://benwade.dev/magfitmap/data/gyms.json")
     .then((response) => response.json())
     .then((json) => {
+      console.log(json.length);
       json.forEach(file => {
         if (!file.Latitude || !file.Longitude) return;
 
@@ -50,8 +51,8 @@ function renderMarkers() {
           textColor: "white",
           //color: #00FF00,
         }]
-
       };
+      console.log(markers.length);
       new markerClusterer.MarkerClusterer({
         markers,
         map,
