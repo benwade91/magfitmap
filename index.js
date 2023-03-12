@@ -1,11 +1,18 @@
 let map;
 let data;
 
+const image = {
+  url: "https://benwade.dev/magfitmap/markers/magfitIcon.png",
+  size: new google.maps.Size(71, 71),
+  origin: new google.maps.Point(0, 0),
+  anchor: new google.maps.Point(17, 34),
+  scaledSize: new google.maps.Size(50, 50)
+};
+
 fetch("./data/gyms.json")
   .then((response) => response.json())
   .then((json) => {
-    data = json.body;
-    data.forEach(file => {
+    json.body.forEach(file => {
       const marker = new google.maps.Marker({
         position: {
           lat: file.Latitude,
@@ -28,14 +35,6 @@ fetch("./data/gyms.json")
       });
     })
   });
-
-const image = {
-  url: "https://benwade.dev/magfitmap/markers/magfitIcon.png",
-  size: new google.maps.Size(71, 71),
-  origin: new google.maps.Point(0, 0),
-  anchor: new google.maps.Point(17, 34),
-  scaledSize: new google.maps.Size(50, 50)
-};
 
 function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
