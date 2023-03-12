@@ -1,16 +1,16 @@
 let map;
 window.initMap = initMap;
 
-const image = {
-  url: "https://benwade.dev/magfitmap/markers/magfitIcon.png",
-  size: new google.maps.Size(71, 71),
-  origin: new google.maps.Point(0, 0),
-  anchor: new google.maps.Point(17, 34),
-  scaledSize: new google.maps.Size(50, 50)
-};
 
 function renderMarkers() {
-  fetch("./data/gyms.json")
+  const image = {
+    url: "https://benwade.dev/magfitmap/markers/magfitIcon.png",
+    size: new google.maps.Size(71, 71),
+    origin: new google.maps.Point(0, 0),
+    anchor: new google.maps.Point(17, 34),
+    scaledSize: new google.maps.Size(50, 50)
+  };
+  fetch("https://benwade.dev/magfitmap/data/gyms.json")
     .then((response) => response.json())
     .then((json) => {
       console.log(json.body);
