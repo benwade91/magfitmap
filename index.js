@@ -12,7 +12,7 @@ function renderMarkers() {
   };
   const markers = [];
 
-  fetch("./data/gyms.json")
+  fetch("./data/newGyms.json")
     .then((response) => response.json())
     .then((json) => {
       console.log(json.length);
@@ -30,7 +30,7 @@ function renderMarkers() {
         });
 
         const infowindow = new google.maps.InfoWindow({
-          content: `<div><h3>${file.Name}</h3><p>${file.Address}</p><p><a>${file.Website}</a></p></div>`,
+          content: `<div><h3>${file.Name}</h3><p>${file.Address}</p><p><a href="${file.Website}">${file.Website}</a></p></div>`,
           ariaLabel: "Uluru",
         });
         marker.addListener("click", () => {
