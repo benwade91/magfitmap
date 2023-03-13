@@ -30,7 +30,7 @@ function renderMarkers() {
         });
 
         const infowindow = new google.maps.InfoWindow({
-          content: `<div><h3>${file.Name}</h3><p>${file.Address}</p><p><a href="${file.Website}">${file.Website}</a></p></div>`,
+          content: `<div class="content-div"><h3>${file.Name}</h3><p>${file.Address}</p><p><a href="${file.Website}">${file.Website}</a></p></div>`,
           ariaLabel: "Uluru",
         });
         marker.addListener("click", () => {
