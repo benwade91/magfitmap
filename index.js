@@ -46,7 +46,8 @@ function renderMarkers() {
         size: new google.maps.Size(60, 60),
         origin: new google.maps.Point(0, 0),
         anchor: new google.maps.Point(17, 34),
-        scaledSize: new google.maps.Size(60, 60)
+        scaledSize: new google.maps.Size(60, 60),
+        labelOrigin: new google.maps.Point(20, 20)
       };
       console.log(markers.length);
 
